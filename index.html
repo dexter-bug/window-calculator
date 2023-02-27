@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Calculator</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script>
+
+
+    const incToMm = (v) => {
+      return v * 25.4
+    }
+
+    const mmToInc = (v) => {
+      return v / 25.4
+    }
+
+
+
+    const twoNumber = () => {
+
+      const h = parseInt(document.getElementById("h").value);
+      const w = parseInt(document.getElementById("w").value);
+
+      if (h && w) {
+        const height = incToMm(h);
+        const width = incToMm(w);
+        const point = incToMm(1.5);
+        const point2 = incToMm(8);
+
+        const value1 = height - point
+        const value2 = width - point2
+        const widthMainValue = value2 / 3
+
+        document.getElementById("result").innerHTML =
+          `<p>Handle Inter Lock : ${mmToInc(value1).toFixed(2)}</p>
+         <p>Bearing Bottom : ${mmToInc(widthMainValue).toFixed(2)}</p>`;
+      }
+      else {
+        alert("Please Enter Height and Width")
+      }
+
+    }
+    const clearInput = () => {
+      document.getElementById("h").value = "";
+      document.getElementById("w").value = "";
+      document.getElementById("result").innerHTML = "";
+    }
+
+  </script>
+</head>
+
+<body>
+  
+  <div class="container">
+
+   <div class="input-container"> <img src="download.jpeg" alt="" style="height: 50px; width: 50px;">
+    <br>
+  <input placeholder="Height" type="number" id="h" class="text-in" />
+  <br>
+   
+  <input placeholder="Width" type="number" id="w" class="text-in" />
+   <br></div>
+ <div class="btn-container"> <button onclick="twoNumber()" class="answer">Answer</button>
+    <button onclick="clearInput()" class="clear">Clear</button></div>
+  
+  <div id="result"></div>
+  </div>
+
+</body>
+
+</html>
