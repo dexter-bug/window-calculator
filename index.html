@@ -17,15 +17,15 @@
     }
 
     const mmToInc = (v) => {
-      return v / 25.4
+      return v * 0.0393701
     }
 
 
 
     const twoNumber = () => {
 
-      const h = parseInt(document.getElementById("h").value);
-      const w = parseInt(document.getElementById("w").value);
+      const h = Number(document.getElementById("h").value);
+      const w = Number(document.getElementById("w").value);
 
       if (h && w) {
         const height = incToMm(h);
@@ -56,8 +56,8 @@
 </head>
 
 <body>
+  
   <div class="container">
-    <h2>Window Calculator</h2>
 
    <div class="input-container"> <img src="download.jpeg" alt="" style="height: 50px; width: 50px;">
     <br>
